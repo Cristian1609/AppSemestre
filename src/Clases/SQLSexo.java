@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -37,7 +35,7 @@ public class SQLSexo extends BD.Conexion {
             resultado = (filasActualizadas > 0);
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Error al modificar Sexo: " + e.getMessage());
+             JOptionPane.showMessageDialog(null, e);
 
         }
 
@@ -133,9 +131,9 @@ public class SQLSexo extends BD.Conexion {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, nombre);
 
-            int affectedRows = ps.executeUpdate();
+            int temp = ps.executeUpdate();
 
-            if (affectedRows > 0) {
+            if (temp > 0) {
                 JOptionPane.showMessageDialog(null, "Tipo de sexo eliminada");
                 txtSexo.setText("");
                 return true;
