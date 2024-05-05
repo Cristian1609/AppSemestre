@@ -77,7 +77,8 @@ public class SQLSexo extends BD.Conexion {
                     return true;
 
                 } catch (SQLException ex) {
-                    Logger.getLogger(SQLTipoIdentificacion.class.getName()).log(Level.SEVERE, null, ex);
+                     JOptionPane.showMessageDialog(null, ex);
+
                 }
                 return false;
             }else{
@@ -85,7 +86,8 @@ public class SQLSexo extends BD.Conexion {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(SQLTipoIdentificacion.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(null, ex);
+
         }
         return false;
 
