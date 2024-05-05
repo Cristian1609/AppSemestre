@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -78,7 +76,7 @@ public class SQLSemestre extends BD.Conexion {
                     return true;
 
                 } catch (SQLException ex) {
-                    Logger.getLogger(SQLTipoIdentificacion.class.getName()).log(Level.SEVERE, null, ex);
+                     JOptionPane.showMessageDialog(null, ex);
                 }
                 return false;
             } else {
@@ -86,7 +84,7 @@ public class SQLSemestre extends BD.Conexion {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(SQLTipoIdentificacion.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, ex);
         }
         return false;
 
