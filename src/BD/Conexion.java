@@ -3,8 +3,7 @@ package BD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class Conexion {
 
@@ -17,12 +16,11 @@ public class Conexion {
 
     public Connection conectar() {
         try {
-            Class.forName(driver);
             cx = DriverManager.getConnection(url + bd, User, password);
             System.out.println("Si conecto a " + bd);
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println("No se conecto a " + bd);
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+            
 
         }
         return cx;
@@ -34,7 +32,7 @@ public class Conexion {
             System.out.println("Si desconecto a " + bd);
 
         } catch (SQLException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Se desconecto de " + bd);
         }
     }
 //    public static void main(String[] args) {
