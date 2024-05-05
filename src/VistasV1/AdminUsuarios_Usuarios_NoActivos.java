@@ -10,13 +10,13 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
+public class AdminUsuarios_Usuarios_NoActivos extends javax.swing.JFrame {
 
     SQLSexo ss = new SQLSexo();
     CSexo s = new CSexo();
     private String dato;
 
-    public AdminUsuarios_ListaUsuarios() {
+    public AdminUsuarios_Usuarios_NoActivos() {
         initComponents();
         MostrarDatosTabla();
     }
@@ -47,11 +47,9 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         txtSexo = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaUsuarios = new javax.swing.JTable();
-        jButton3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -249,7 +247,7 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Lista Usuarios");
+        jLabel19.setText("Lista Usuarios Inactivos");
 
         jLabel20.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -264,22 +262,10 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
         txtSexo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSexo.setBorder(null);
 
-        jButton2.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 0, 0));
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jButton2.setText("Eliminar");
-        jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0)));
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-
         jButton1.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 255));
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jButton1.setText("Registrar");
+        jButton1.setText("Habilitar");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 204), new java.awt.Color(0, 0, 204)));
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -318,19 +304,6 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TablaUsuarios);
 
-        jButton3.setBackground(new java.awt.Color(255, 204, 0));
-        jButton3.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 153, 0));
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jButton3.setText("Deshabilitar");
-        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 204, 0), new java.awt.Color(255, 204, 0)));
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -341,41 +314,28 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
                 .addComponent(jLabel21)
                 .addGap(47, 47, 47)
                 .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 352, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(166, 166, 166)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGap(203, 203, 203))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(755, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(193, 193, 193)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(jLabel19)
+                .addGap(71, 71, 71)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel21)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,11 +343,6 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
                     .addGap(20, 20, 20)
                     .addComponent(jLabel20)
                     .addContainerGap(466, Short.MAX_VALUE)))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(155, 155, 155)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(324, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1100, 520));
@@ -411,11 +366,6 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
         ss.Registrar(txtSexo, s);
         ss.Mostrar(TablaUsuarios);
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ss.Eliminar(txtSexo);
-        ss.Mostrar(TablaUsuarios);
-    }//GEN-LAST:event_jButton2MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         VistaIniciarSesion vi = new VistaIniciarSesion();
@@ -480,14 +430,10 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel9MouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseClicked
-
     public void MostrarDatosTabla() {
 
         String sql = "SELECT "
-                + "u.id,"
+                + "   u.id,"
                 + "   u.nombre_completo, "
                 + "   ti.nombre AS tipo_identificacion, "
                 + "   u.numero_identificacion, "
@@ -507,7 +453,7 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
                 + "   LEFT JOIN Administrador a ON r.nombre = 'Administrador' AND u.id = a.id_usuario "
                 + "   LEFT JOIN Docente d ON r.nombre = 'Docente' AND u.id = d.id_usuario "
                 + "   LEFT JOIN Alumno al ON r.nombre = 'Alumno' AND u.id = al.id_usuario"
-                + " WHERE estado = 'activo'; ";
+                + " WHERE estado = 'inactivo'; ";
 
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Id");
@@ -554,15 +500,13 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(() -> {
-            new AdminUsuarios_ListaUsuarios().setVisible(true);
+            new AdminUsuarios_Usuarios_NoActivos().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaUsuarios;
     private javax.swing.JLabel jButton1;
-    private javax.swing.JLabel jButton2;
-    private javax.swing.JLabel jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;

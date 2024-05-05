@@ -2,33 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/Admin_Curso.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/AdminUsuarios_Rol.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/AdminUsuarios_Programa.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/AdminUsuarios_EPS.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/AdminUsuarios_Sexo.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/VistaIniciarSesion.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Clases/CCurso.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Clases/SQLEps.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Clases/SQLPensum.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/AdminGeneral.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/AdminUsuarios_Semestre.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/Admin_InformacionPersonal.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Clases/CConcretaDocente.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Clases/SQLCurso.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/AdminUsuarios.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/AdminUsuarios_ListaUsuarios.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Clases/ClaseUsuario.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/Admin_Asignatura.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Clases/IUsuario.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/Admin_Pensum.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/Admin_Alumnos.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/AdminUsuarios_Identificacion.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Clases/SQLIniciarSesion.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Factory/UsuarioFactory.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/Clases/SQLAsignatura.java</file>
-            <file>file:/C:/Users/usuario/Desktop/Semestre%20No%206/PATRONES%20DISEÑO%20DE%20SOFTWARE/AppSemestreV1.0/src/VistasV1/Admin_Docentes.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS appsemestre;
-
 CREATE DATABASE appsemestre;
 USE appsemestre;
+
 
 CREATE TABLE Tipo_identificacion (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -31,8 +31,8 @@ CREATE TABLE Usuario (
     numero_identificacion INT NOT NULL,
     correo_personal VARCHAR(30) NOT NULL,
     telefono VARCHAR(15),
+    estado VARCHAR(15),
     fecha_nacimiento DATE,
-    edad INT, 
     id_sexo INT NOT NULL,
     id_eps INT NOT NULL,
     FOREIGN KEY (id_tipo_identificacion) REFERENCES Tipo_identificacion(id),
@@ -60,6 +60,7 @@ CREATE TABLE Pensum (
     id_programa INT NOT NULL,
     FOREIGN KEY (id_programa) REFERENCES Programa(id)
 );
+
 CREATE TABLE Asignatura (
     id INT AUTO_INCREMENT PRIMARY KEY,
     codigo VARCHAR(15),
@@ -78,6 +79,7 @@ CREATE TABLE Curso (
     id_asignatura INT NOT NULL,
     FOREIGN KEY (id_asignatura) REFERENCES Asignatura(id)
 );
+
 CREATE TABLE Administrador (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
@@ -119,16 +121,15 @@ CREATE TABLE Docente (
     UNIQUE (correo_institucional)
 );
 
+
 DELIMITER //
-CREATE TRIGGER Calcular_edad
+CREATE TRIGGER Insertar_Estado
 BEFORE INSERT ON Usuario
 FOR EACH ROW
 BEGIN
-    IF NEW.fecha_nacimiento IS NOT NULL THEN
-        SET NEW.edad = TIMESTAMPDIFF(YEAR, NEW.fecha_nacimiento, CURDATE());
-    ELSE
-        SET NEW.edad = NULL;
-    END IF;
+    SET NEW.estado = 'activo';
 END;
 //
 DELIMITER ;
+
+

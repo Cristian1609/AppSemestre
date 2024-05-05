@@ -23,8 +23,8 @@ public class SQLUsuarioFactory extends BD.Conexion {
             JTextField txtCorreoPersonal, JTextField txtTeléfono, JDateChooser jcalendarNacimiento, JComboBox<String> comboSexo,
             JComboBox<String> comboEps, UsuarioFactory factory, JTextField txtRol, JComboBox<String> comboPrograma) throws SQLException {
 
-        IUsuario usuario = factory.crearUsuario(txtRol.getText(),txtNombre.getText(),comboTipoIdentificación.getSelectedItem().toString(),
-                txtNúmeroIdentificación.getText(),txtCorreoPersonal.getText(),txtTeléfono.getText(),
+        IUsuario usuario = factory.crearUsuario(txtRol.getText(), txtNombre.getText(), comboTipoIdentificación.getSelectedItem().toString(),
+                txtNúmeroIdentificación.getText(), txtCorreoPersonal.getText(), txtTeléfono.getText(),
                 new Date(jcalendarNacimiento.getDate().getTime()),
                 comboSexo.getSelectedItem().toString(),
                 comboEps.getSelectedItem().toString(),
@@ -85,12 +85,12 @@ public class SQLUsuarioFactory extends BD.Conexion {
 
             String especialidad = (String) comboEspecialidad.getSelectedItem();
             String programa = (String) comboPrograma.getSelectedItem();
-//            String codigoInstitucional = txtCodigoInstitucional.getText();
-//            String correoInstitucional = txtCorreoInstitucional.getText();
-//            String contrasena = txtContraseña.getText();
+            String codigoInstitucional = txtCodigoInstitucional.getText();
+            String correoInstitucional = txtCorreoInstitucional.getText();
+            String contrasena = txtContraseña.getText();
             System.out.println();
             System.out.println(usuario.getCorreo());
-            
+
             String sql = "INSERT INTO Docente (id_usuario, id_especialidad, id_programa, codigo_institucional, correo_institucional, contraseña) "
                     + "VALUES ("
                     + "?, "
@@ -105,9 +105,9 @@ public class SQLUsuarioFactory extends BD.Conexion {
                 pstmt.setInt(1, idUsuario);
                 pstmt.setString(2, especialidad);
                 pstmt.setString(3, programa);
-                pstmt.setString(4, ((CConcretaDocente) usuario).getCodigI());
-                pstmt.setString(5, ((CConcretaDocente) usuario).getCodigI());
-                pstmt.setString(6, ((CConcretaDocente) usuario).getContra());
+                pstmt.setString(4, codigoInstitucional);
+                pstmt.setString(5, correoInstitucional);
+                pstmt.setString(6, contrasena);
 
                 int temp = pstmt.executeUpdate();
                 if (temp == 0) {
@@ -118,7 +118,7 @@ public class SQLUsuarioFactory extends BD.Conexion {
                 JOptionPane.showMessageDialog(null, e);
 
             }
-            
+
         }
     }
 
@@ -127,9 +127,9 @@ public class SQLUsuarioFactory extends BD.Conexion {
         if (usuario instanceof CConcretaAlumno) {
 
             String programa = (String) comboPrograma.getSelectedItem();
-//            String codigoInstitucional = txtCodigoInstitucional.getText();
-//            String correoInstitucional = txtCorreoInstitucional.getText();
-//            String contrasena = txtContraseña.getText();
+            String codigoInstitucional = txtCodigoInstitucional.getText();
+            String correoInstitucional = txtCorreoInstitucional.getText();
+            String contrasena = txtContraseña.getText();
 
             String sql = "INSERT INTO Alumno (id_usuario, id_programa, codigo_institucional, correo_institucional, contraseña) "
                     + "VALUES ("
@@ -143,9 +143,9 @@ public class SQLUsuarioFactory extends BD.Conexion {
 
                 pstmt.setInt(1, idUsuario);
                 pstmt.setString(2, programa);
-                pstmt.setString(3, ((CConcretaAlumno) usuario).getCodigoInstitucional());
-                pstmt.setString(4, ((CConcretaAlumno) usuario).getCorreoInstitucional());
-                pstmt.setString(5, ((CConcretaAlumno) usuario).getContrasena());
+                pstmt.setString(3, codigoInstitucional);
+                pstmt.setString(4, correoInstitucional);
+                pstmt.setString(5, contrasena);
 
                 int temporal = pstmt.executeUpdate();
                 if (temporal == 0) {
@@ -182,7 +182,8 @@ public class SQLUsuarioFactory extends BD.Conexion {
                 + "  JOIN Tipo_identificacion ti ON u.id_tipo_identificacion = ti.id "
                 + "  JOIN Sexo s ON u.id_sexo = s.id "
                 + "  JOIN Eps e ON u.id_eps = e.id "
-                + "  JOIN Programa prog ON a.id_programa = prog.id";
+                + "  JOIN Programa prog ON a.id_programa = prog.id"
+                + " WHERE estado = 'activo'; ";
 
         Conexion con = new Conexion();
         Connection cox = con.conectar();
@@ -240,7 +241,6 @@ public class SQLUsuarioFactory extends BD.Conexion {
 
         Connection conn = new Conexion().conectar();
 
-        
         String sql = "SELECT "
                 + "u.id,"
                 + "  u.nombre_completo, "
@@ -474,7 +474,8 @@ public class SQLUsuarioFactory extends BD.Conexion {
                 + "JOIN sexo s ON u.id_sexo = s.id "
                 + "JOIN eps e ON u.id_eps = e.id "
                 + "JOIN especialidad esp ON d.id_especialidad = esp.id "
-                + "JOIN programa prog ON d.id_programa = prog.id";
+                + "JOIN programa prog ON d.id_programa = prog.id"
+                + " WHERE estado = 'activo'; ";
 
         Conexion con = new Conexion();
         Connection cox = con.conectar();
