@@ -1,8 +1,7 @@
 package Clases;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class SQLUsuarios extends BD.Conexion {
 
@@ -17,7 +16,7 @@ public class SQLUsuarios extends BD.Conexion {
             ps = con.prepareStatement(sql);
             ps.setString(1, sql);
         } catch (SQLException ex) {
-            Logger.getLogger(SQLUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, ex);
         }
         return false;
     }
