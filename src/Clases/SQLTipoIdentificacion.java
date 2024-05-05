@@ -2,8 +2,6 @@ package Clases;
 
 import BD.Conexion;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -50,7 +48,7 @@ public class SQLTipoIdentificacion extends BD.Conexion {
                     return true;
 
                 } catch (SQLException ex) {
-                    Logger.getLogger(SQLTipoIdentificacion.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, ex);
                 }
                 return false;
             } else {
@@ -58,7 +56,7 @@ public class SQLTipoIdentificacion extends BD.Conexion {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(SQLTipoIdentificacion.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, ex);
         }
         return false;
 
@@ -143,9 +141,9 @@ public class SQLTipoIdentificacion extends BD.Conexion {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, nombre);
 
-            int affectedRows = ps.executeUpdate();
+            int temp = ps.executeUpdate();
 
-            if (affectedRows > 0) {
+            if (temp > 0) {
                 JOptionPane.showMessageDialog(null, "Tipo de identificación eliminada");
                 txtTipoIdentificacion.setText("");
                 return true;
