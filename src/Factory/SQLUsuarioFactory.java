@@ -109,8 +109,8 @@ public class SQLUsuarioFactory extends BD.Conexion {
                 pstmt.setString(5, ((CConcretaDocente) usuario).getCodigI());
                 pstmt.setString(6, ((CConcretaDocente) usuario).getContra());
 
-                int affectedRows = pstmt.executeUpdate();
-                if (affectedRows == 0) {
+                int temp = pstmt.executeUpdate();
+                if (temp == 0) {
                     JOptionPane.showMessageDialog(null, "No se pudo crear correctamente");
                 }
                 JOptionPane.showMessageDialog(null, "Creado correctamente");
