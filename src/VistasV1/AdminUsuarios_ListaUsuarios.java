@@ -3,6 +3,7 @@ package VistasV1;
 import BD.Conexion;
 import Clases.CSexo;
 import Clases.SQLSexo;
+import Factory.SQLUsuarioFactory;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,12 +47,14 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        txtSexo = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jButton2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaUsuarios = new javax.swing.JTable();
         jButton3 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        txtRol = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -245,24 +248,30 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Lista Usuarios");
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 58, 1096, -1));
 
         jLabel20.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("Usuarios ");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 22, 1096, -1));
 
         jLabel21.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel21.setText("Nombre: ");
+        jLabel21.setText("Id:");
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
-        txtSexo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtSexo.setBorder(null);
+        txtId.setEditable(false);
+        txtId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtId.setBorder(null);
+        jPanel2.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 60, 37));
 
         jButton2.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 0, 0));
@@ -275,6 +284,7 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(913, 156, 148, 37));
 
         jButton1.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 255));
@@ -287,6 +297,7 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 156, 148, 37));
 
         TablaUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         TablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -318,6 +329,8 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TablaUsuarios);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 240, 1084, 257));
+
         jButton3.setBackground(new java.awt.Color(255, 204, 0));
         jButton3.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 153, 0));
@@ -330,65 +343,18 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 157, 148, 37));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel21)
-                .addGap(47, 47, 47)
-                .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(166, 166, 166)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(755, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(193, 193, 193)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel19)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(jLabel20)
-                    .addContainerGap(466, Short.MAX_VALUE)))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(155, 155, 155)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(324, Short.MAX_VALUE)))
-        );
+        jLabel22.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel22.setText("Usuario:");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        txtRol.setEditable(false);
+        txtRol.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtRol.setBorder(null);
+        jPanel2.add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 237, 37));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1100, 520));
 
@@ -404,16 +370,17 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void TablaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaUsuariosMouseClicked
-        ss.Cargar(TablaUsuarios, txtSexo);
+        SQLUsuarioFactory sql = new SQLUsuarioFactory();
+        sql.CargarUsuario(TablaUsuarios, txtId, txtRol);
     }//GEN-LAST:event_TablaUsuariosMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ss.Registrar(txtSexo, s);
+        ss.Registrar(txtId, s);
         ss.Mostrar(TablaUsuarios);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ss.Eliminar(txtSexo);
+        ss.Eliminar(txtId);
         ss.Mostrar(TablaUsuarios);
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -479,11 +446,6 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
         adminC.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel9MouseClicked
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseClicked
-
     public void MostrarDatosTabla() {
 
         String sql = "SELECT "
@@ -550,6 +512,25 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al mostrar datos: " + e.toString());
         }
     }
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        int filaSeleccionada = TablaUsuarios.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            int usuarioId = Integer.parseInt(TablaUsuarios.getValueAt(filaSeleccionada, 0).toString());
+
+            boolean resultado = SQLUsuarioFactory.desHabilitar(usuarioId);
+
+            if (resultado) {
+                JOptionPane.showMessageDialog(null, "Usuario Deshabilitado");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo Deshabilitar usuario.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila.");
+        }
+        MostrarDatosTabla();
+        txtId.setText("");
+        txtRol.setText("");
+    }//GEN-LAST:event_jButton3MouseClicked
 
     public static void main(String args[]) {
 
@@ -570,6 +551,7 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -580,6 +562,7 @@ public class AdminUsuarios_ListaUsuarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDato;
-    private javax.swing.JTextField txtSexo;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtRol;
     // End of variables declaration//GEN-END:variables
 }

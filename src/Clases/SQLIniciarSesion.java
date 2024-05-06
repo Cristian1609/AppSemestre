@@ -33,7 +33,7 @@ public class SQLIniciarSesion extends BD.Conexion {
 
         if (!usuario.isEmpty() || !contra.isEmpty()) {
             if ("Administrador".equals(rolSeleccionado)) {
-                sql = "SELECT a.codigo_institucional, a.contraseña,a.correo_institucional FROM Administrador a WHERE a.codigo_institucional = ?";
+                sql = "SELECT a.codigo_institucional, a.contraseña,a.correo_institucional FROM Administrador a WHERE a.codigo_institucional = ? ";
             } else if ("Docente".equals(rolSeleccionado)) {
                 sql = "SELECT d.codigo_institucional, d.contraseña FROM Docente d WHERE d.codigo_institucional = ?";
             } else if ("Alumno".equals(rolSeleccionado)) {

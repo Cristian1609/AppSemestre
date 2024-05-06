@@ -351,6 +351,55 @@ public class SQLUsuarioFactory extends BD.Conexion {
             throw e;
         }
     }
+    
+     public static boolean Habilitar(int usuarioId) {
+        Connection conn = new Conexion().conectar();
+
+        String sql = "UPDATE `usuario` SET `estado`= 'activo' WHERE id = ?;";
+
+        try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+            
+
+            pstm.setInt(1, usuarioId);
+            int filaActualizar = pstm.executeUpdate();
+            return filaActualizar > 0;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al habilitar: " + e.getMessage());
+        }
+        return false;
+
+    }
+
+    public static boolean desHabilitar(int usuarioId) {
+        Connection conn = new Conexion().conectar();
+
+        String sql = "UPDATE `usuario` SET `estado`= 'inactivo' WHERE id = ?;";
+
+        try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+            
+
+            pstm.setInt(1, usuarioId);
+            int filaActualizar = pstm.executeUpdate();
+            return filaActualizar > 0;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al deshabilitar: " + e.getMessage());
+        }
+        return false;
+
+    }
+
+    public boolean CargarUsuario(JTable jTable1, JTextField txtId, JTextField txtRol) {
+        int filaSeleccionada = jTable1.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            txtId.setText(jTable1.getValueAt(filaSeleccionada, 0).toString());
+            txtRol.setText(jTable1.getValueAt(filaSeleccionada, 1).toString());
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila para cargar datos");
+        }
+        return false;
+
+    }
 
     public static boolean modificarDocente(int docenteId, JTextField txtNombre, JComboBox<String> comboTipoIdentificacion,
             JTextField txtCorreoPersonal, JTextField txtNumeroIdentificacion, JTextField txtTelefono,
@@ -398,8 +447,8 @@ public class SQLUsuarioFactory extends BD.Conexion {
             return filaActualizar > 0;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al modificar docente: " + e.getMessage());
-            throw e;
         }
+        return false;
     }
 
     public static boolean modificarAlumno(int alumnoId, JTextField txtNombre, JComboBox<String> comboTipoIdentificación,
