@@ -17,7 +17,7 @@ public class SQLPensum extends BD.Conexion {
     Connection con = conectar();
     PreparedStatement ps = null;
 
-    public static boolean modificarPensum(int idPensum, JTextField txtcodigo,JComboBox jComboBox1) throws SQLException {
+    public static boolean modificarPensum(int idPensum, JTextField txtcodigo, JComboBox jComboBox1) throws SQLException {
         Connection conn = new Conexion().conectar();
 
         String sql
@@ -34,7 +34,7 @@ public class SQLPensum extends BD.Conexion {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, txtcodigo.getText());
-             pstmt.setString(2,jComboBox1.getSelectedItem().toString());
+            pstmt.setString(2, jComboBox1.getSelectedItem().toString());
             pstmt.setInt(3, idPensum);
 
             int filasActualizadas = pstmt.executeUpdate();
@@ -140,7 +140,7 @@ public class SQLPensum extends BD.Conexion {
             return true;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
-            return false; 
+            return false;
         }
     }
 }

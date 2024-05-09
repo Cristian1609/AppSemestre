@@ -104,6 +104,22 @@ CREATE TABLE Alumno (
     UNIQUE (correo_institucional)
 );
 
+
+
+CREATE TABLE Solicitud_permiso (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo_Alumno TEXT,
+    dias INT,
+    detalle TEXT
+);
+
+CREATE TABLE Solicitud_Certificado (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo_Alumno TEXT,
+    tipo TEXT, 
+    detalle TEXT
+);
+
 CREATE TABLE Especialidad (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50)
@@ -142,6 +158,9 @@ CREATE TABLE matricula_Alumno(
     FOREIGN KEY (id_alumno) REFERENCES Alumno(id),
     FOREIGN KEY (id_horarioCurso) REFERENCES HorarioCurso(id)
 );
+
+
+
 
 DELIMITER //
 CREATE TRIGGER Insertar_Estado

@@ -356,7 +356,7 @@ public class Alumno_Matricula extends javax.swing.JFrame {
     }//GEN-LAST:event_lblDatoMouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        Alumno_Informes aluI = new Alumno_Informes();
+        Alumno_Solicitudes aluI = new Alumno_Solicitudes();
         aluI.setDato(dato);
         aluI.setVisible(true);
         this.setVisible(false);

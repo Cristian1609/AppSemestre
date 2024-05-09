@@ -27,8 +27,8 @@ public class SQLIniciarSesion extends BD.Conexion {
 //
 //        txtUsuario.setText("02210132001");
 //        txtContraseña.setText("02210132001@123");
-        txtUsuario.setText("02210132011");
-        txtContraseña.setText("02210132011@123");
+////        txtUsuario.setText("02210132011");
+////        txtContraseña.setText("02210132011@123");
         String usuario = txtUsuario.getText();
         String contra = txtContraseña.getText();
         String rolSeleccionado = jComboBox1.getSelectedItem().toString();
