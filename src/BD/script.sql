@@ -66,6 +66,7 @@ CREATE TABLE Asignatura (
     codigo VARCHAR(15),
     nombre VARCHAR(50),
     numero_creditos INT,
+    nivel INT,
     id_semestre int not null,
     id_pensum int not null,
     FOREIGN KEY (id_semestre) REFERENCES Semestre(id),
@@ -77,7 +78,8 @@ CREATE TABLE Curso (
     codigo VARCHAR(15),
     nombre VARCHAR(50),
     id_asignatura INT NOT NULL,
-    FOREIGN KEY (id_asignatura) REFERENCES Asignatura(id)
+    FOREIGN KEY (id_asignatura) REFERENCES Asignatura(id),
+    UNIQUE(codigo)
 );
 
 CREATE TABLE Administrador (
@@ -121,6 +123,25 @@ CREATE TABLE Docente (
     UNIQUE (correo_institucional)
 );
 
+CREATE TABLE HorarioCurso(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_curso INT NOT NULL,
+    id_docente INT NOT NULL,
+    dia VARCHAR(10),
+    Hora_Inicio TIME,
+    Hora_Fin TIME,
+    FOREIGN KEY (id_curso) REFERENCES Curso(id),
+    FOREIGN KEY (id_docente) REFERENCES Docente(id)
+);
+
+
+CREATE TABLE matricula_Alumno(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_alumno int not null,
+    id_horarioCurso int not null,
+    FOREIGN KEY (id_alumno) REFERENCES Alumno(id),
+    FOREIGN KEY (id_horarioCurso) REFERENCES HorarioCurso(id)
+);
 
 DELIMITER //
 CREATE TRIGGER Insertar_Estado

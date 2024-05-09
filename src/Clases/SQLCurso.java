@@ -1,7 +1,6 @@
 package Clases;
 
 import BD.Conexion;
-import com.mysql.cj.xdevapi.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

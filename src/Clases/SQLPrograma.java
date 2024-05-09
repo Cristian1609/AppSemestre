@@ -93,32 +93,31 @@ public class SQLPrograma extends BD.Conexion {
     }
 
     public static boolean modificarPrograma(int idPrograma, JTextField txtcodigo, JTextField txtNombre, JTextArea jTextAreaDescripcion) throws SQLException {
-    Connection conn = new Conexion().conectar();
+        Connection conn = new Conexion().conectar();
 
-    String sql = "UPDATE programa "
-               + "SET "
-               + "codigo = ?, "
-               + "nombre = ?, "
-               + "descripcion = ? "
-               + "WHERE id = ?";
+        String sql = "UPDATE programa "
+                + "SET "
+                + "codigo = ?, "
+                + "nombre = ?, "
+                + "descripcion = ? "
+                + "WHERE id = ?";
 
-    boolean resultado = false;
+        boolean resultado = false;
 
-    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-        pstmt.setString(1, txtcodigo.getText());
-        pstmt.setString(2, txtNombre.getText());
-        pstmt.setString(3, jTextAreaDescripcion.getText());
-        pstmt.setInt(4, idPrograma);
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, txtcodigo.getText());
+            pstmt.setString(2, txtNombre.getText());
+            pstmt.setString(3, jTextAreaDescripcion.getText());
+            pstmt.setInt(4, idPrograma);
 
-        int filasActualizadas = pstmt.executeUpdate();
-        resultado = (filasActualizadas > 0);
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "Error al modificar Programa: " + e.getMessage());
+            int filasActualizadas = pstmt.executeUpdate();
+            resultado = (filasActualizadas > 0);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al modificar Programa: " + e.getMessage());
+        }
+
+        return resultado;
     }
-
-    return resultado;
-}
-
 
     public void eliminar(JTextField txtcodigo, JTextField txtNombre, JTextArea jTextAreaDescripcion) {
 

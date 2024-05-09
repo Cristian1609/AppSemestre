@@ -20,6 +20,9 @@ INSERT INTO Sexo (nombre) VALUES ("Prefiero no decirlo");
 INSERT INTO Usuario (id_rol, nombre_completo, id_tipo_identificacion, numero_identificacion, correo_personal, telefono, fecha_nacimiento, id_sexo, id_eps)
 VALUES (1, "Cristian Adolfo Estrada Lindarte", 1, "1091968522", "cristianestrada1609@gmail.com", "3204795796", "2005-06-09", 1, 1);
 
+INSERT INTO Administrador (id_usuario, codigo_institucional, correo_institucional, contraseña)
+VALUES (1, "02210132001", "02210132001@mail.udes.edu.co", "02210132001@123");
+
 INSERT INTO Usuario (id_rol, nombre_completo, id_tipo_identificacion, numero_identificacion, correo_personal, telefono, fecha_nacimiento, id_sexo, id_eps)
 VALUES (2, "Jesus Adolfo Estrada Silva", 1, "88240066", "JesusAdolfo@gmail.com", "3123426851", "1979-10-10", 1, 2);
 
@@ -32,9 +35,6 @@ VALUES (1, "Rosmery LIndarte Lopez", 1, "1091968522", "RosmeryLindarte1609@gmail
 
 INSERT INTO Programa (codigo,nombre, descripcion) VALUES ("000123","Ingenieria de Sistemas", "Acreditado profesionalmente");
 
-
-INSERT INTO Administrador (id_usuario, codigo_institucional, correo_institucional, contraseña)
-VALUES (1, "02210132001", "02210132001@mail.udes.edu.co", "02210132001@123");
 
 INSERT INTO Administrador (id_usuario, codigo_institucional, correo_institucional, contraseña)
 VALUES (4, "3123426851", "3123426851@mail.udes.edu.co", "123456");

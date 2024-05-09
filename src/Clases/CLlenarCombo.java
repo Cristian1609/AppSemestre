@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 public class CLlenarCombo {
 
     public void LlenarCombo(String tabla, String valor, JComboBox combo) {
+
         String sql = "select * from " + tabla;
         Statement st;
         Conexion con = new Conexion();

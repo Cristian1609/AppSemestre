@@ -29,6 +29,4 @@ public class CTipoIdentificacion {
         this.nombre = nombre;
     }
 
-    
-
 }

@@ -1,9 +1,6 @@
 package Factory;
 
 import BD.Conexion;
-import Clases.CConcretaAlumno;
-import Clases.CConcretaDocente;
-import Clases.IUsuario;
 import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.Date;
@@ -496,7 +493,7 @@ public class SQLUsuarioFactory extends BD.Conexion {
             int filaActualizar = pstmt.executeUpdate();
             return filaActualizar > 0;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al modificar alumno: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,e);
             throw e;
         }
     }
@@ -571,7 +568,7 @@ public class SQLUsuarioFactory extends BD.Conexion {
 
             return true;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,e);
             return false;
         }
 

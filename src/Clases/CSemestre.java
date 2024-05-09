@@ -1,9 +1,7 @@
-
 package Clases;
 
-
 public class CSemestre {
-    
+
     private String anio;
     private String semestre;
 
@@ -14,7 +12,6 @@ public class CSemestre {
 
     public CSemestre() {
     }
-    
 
     public String getAnio() {
         return anio;
@@ -31,6 +28,5 @@ public class CSemestre {
     public void setSemestre(String semestre) {
         this.semestre = semestre;
     }
-    
-    
+
 }

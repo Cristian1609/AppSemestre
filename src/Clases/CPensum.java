@@ -1,8 +1,7 @@
-
 package Clases;
 
 public class CPensum {
-    
+
     private String codigo;
     private String programa;
 
@@ -29,7 +28,5 @@ public class CPensum {
     public void setPrograma(String programa) {
         this.programa = programa;
     }
-    
-    
-    
+
 }

@@ -32,7 +32,5 @@ public class CCurso {
     public void setAsignatura(String asignatura) {
         this.asignatura = asignatura;
     }
-    
-    
 
 }

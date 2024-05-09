@@ -5,6 +5,7 @@ public class CAsignatura {
     private String codigo;
     private String nombre;
     private String numeroCreditos;
+    private int nivel;
     private String semestre;
     private String pensum;
     private String programa;
@@ -12,10 +13,11 @@ public class CAsignatura {
     public CAsignatura() {
     }
 
-    public CAsignatura(String codigo, String nombre, String numeroCreditos, String semestre, String pensum, String programa) {
+    public CAsignatura(String codigo, String nombre, String numeroCreditos, int nivel, String semestre, String pensum, String programa) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.numeroCreditos = numeroCreditos;
+        this.nivel = nivel;
         this.semestre = semestre;
         this.pensum = pensum;
         this.programa = programa;
@@ -45,6 +47,14 @@ public class CAsignatura {
         this.numeroCreditos = numeroCreditos;
     }
 
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
     public String getSemestre() {
         return semestre;
     }
@@ -69,6 +79,4 @@ public class CAsignatura {
         this.programa = programa;
     }
 
-   
-    
 }

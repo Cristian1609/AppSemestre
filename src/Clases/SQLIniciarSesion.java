@@ -1,7 +1,7 @@
 package Clases;
 
 import BD.Conexion;
-import VistasV1.AdminGeneral;
+import vistasAdministrador.AdminGeneral;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import vistasAlumno.AlumnoGeneral;
 
 public class SQLIniciarSesion extends BD.Conexion {
 
@@ -23,9 +24,11 @@ public class SQLIniciarSesion extends BD.Conexion {
     }
 
     public void Ingresar(JTextField txtUsuario, JPasswordField txtContraseña, JComboBox jComboBox1) throws SQLException {
-
-        txtUsuario.setText("02210132001");
-        txtContraseña.setText("02210132001@123");
+//
+//        txtUsuario.setText("02210132001");
+//        txtContraseña.setText("02210132001@123");
+        txtUsuario.setText("02210132011");
+        txtContraseña.setText("02210132011@123");
         String usuario = txtUsuario.getText();
         String contra = txtContraseña.getText();
         String rolSeleccionado = jComboBox1.getSelectedItem().toString();
@@ -52,22 +55,22 @@ public class SQLIniciarSesion extends BD.Conexion {
 
                         switch (rolSeleccionado) {
                             case "Administrador":
-//                              VistaAdministrador admin = new VistaAdministrador();
-                                VistasV1.AdminGeneral admin = new AdminGeneral();
+                                vistasAdministrador.AdminGeneral admin = new AdminGeneral();
                                 admin.setVisible(true);
                                 admin.setDato(codigoInstitucional);
 
                                 break;
                             case "Docente":
-//                                VistaDocente docente = new VistaDocente();
-//                                docente.setVisible(true);
+
                                 break;
                             case "Alumno":
-//                                VistaAlumno alumno = new VistaAlumno();
-//                                alumno.setVisible(true);
+                                vistasAlumno.AlumnoGeneral alumno = new AlumnoGeneral();
+                                alumno.setVisible(true);
+                                alumno.setDato(codigoInstitucional);
                                 break;
                         }
                         VistaIniciarSesion.dispose();
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
                     }

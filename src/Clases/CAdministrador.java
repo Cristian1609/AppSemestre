@@ -1,5 +1,6 @@
 package Clases;
 
+import Factory.ClaseUsuario;
 import java.util.Date;
 
 public class CAdministrador extends ClaseUsuario {

@@ -1,8 +1,5 @@
 package Factory;
 
-import Clases.CConcretaAlumno;
-import Clases.CConcretaDocente;
-import Clases.IUsuario;
 import java.sql.Date;
 
 public class UsuarioFactory  {

@@ -1,7 +1,7 @@
-
 package Clases;
 
 public class CPrograma {
+
     private String codigo;
     private String nombre;
     private String descripcion;
@@ -39,5 +39,4 @@ public class CPrograma {
         this.descripcion = descripcion;
     }
 
-        
 }
