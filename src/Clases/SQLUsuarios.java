@@ -1,9 +1,11 @@
 package Clases;
 
+import BD.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -11,8 +13,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import java.util.Date;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
-public class SQLAlumno extends BD.Conexion {
+public class SQLUsuarios extends BD.Conexion {
 
     Connection con = conectar();
     PreparedStatement ps = null;
@@ -22,11 +26,13 @@ public class SQLAlumno extends BD.Conexion {
             JLabel lblSexo, JLabel lblEps, JLabel lblCodigoInstitucional, JLabel lblCorreoInstitucional,
             JLabel lblContraseña, JTextField txtNombre, JComboBox<String> comboTipoIdentificacion,
             JTextField txtNumeroIdentificacion, JTextField txtCorreoPersonal, JTextField txtTelefono,
-            JComboBox<String> comboSexo, JComboBox<String> comboEps) {
+            JComboBox<String> comboSexo, JComboBox<String> comboEps, String usuario) {
 
         if (codigoInstitucional.equals("")) {
-            JOptionPane.showMessageDialog(null,"No es posible mostrar tus datos.");
+            JOptionPane.showMessageDialog(null, "No es posible mostrar tus datos.");
+            return false;
         }
+
         String sql = "SELECT "
                 + "u.nombre_completo, "
                 + "ti.nombre AS tipo_identificacion, "
@@ -39,7 +45,7 @@ public class SQLAlumno extends BD.Conexion {
                 + "a.codigo_institucional, "
                 + "a.correo_institucional, "
                 + "a.contraseña "
-                + "FROM Alumno a "
+                + "FROM " + usuario + " a "
                 + "JOIN Usuario u ON a.id_usuario = u.id "
                 + "JOIN Tipo_identificacion ti ON u.id_tipo_identificacion = ti.id "
                 + "JOIN Sexo s ON u.id_sexo = s.id "
@@ -89,9 +95,9 @@ public class SQLAlumno extends BD.Conexion {
             return false;
         }
     }
-    
-     public void ModificarDatos(JTextField txtNombre, JComboBox<String> comboTipoIdentificacion, JTextField txtNumeroIdentificacion,
-            JTextField txtCorreoPersonal, JTextField txtTelefono, JComboBox<String> comboSexo, JComboBox<String> comboEPS, String codigoInstitucional) throws SQLException {
+
+    public void ModificarDatos(JTextField txtNombre, JComboBox<String> comboTipoIdentificacion, JTextField txtNumeroIdentificacion,
+            JTextField txtCorreoPersonal, JTextField txtTelefono, JComboBox<String> comboSexo, JComboBox<String> comboEPS, String codigoInstitucional, String usuario) throws SQLException {
 
         Connection connection = conectar();
 
@@ -106,7 +112,7 @@ public class SQLAlumno extends BD.Conexion {
                 + "   id_sexo = (SELECT id FROM Sexo WHERE nombre = ?), "
                 + "   id_eps = (SELECT id FROM Eps WHERE nombre = ?) "
                 + "WHERE "
-                + "   id = (SELECT id_usuario FROM Alumno WHERE codigo_institucional = ?)";
+                + "   id = (SELECT id_usuario FROM " + usuario + " WHERE codigo_institucional =? )";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, txtNombre.getText());
             preparedStatement.setString(2, comboTipoIdentificacion.getSelectedItem().toString());
@@ -120,4 +126,52 @@ public class SQLAlumno extends BD.Conexion {
             preparedStatement.executeUpdate();
         }
     }
+
+    public boolean mostrarAlumnos(JTable jTable, String codigoCurso) {
+        String sql = """
+                     SELECT 
+                         m.id AS matricula_id,
+                         u.nombre_completo AS alumno_nombre,
+                         u.correo_personal AS alumno_correo
+                     FROM 
+                         matricula_Alumno m
+                         JOIN HorarioCurso hc ON m.id_horarioCurso = hc.id
+                         JOIN Curso c ON hc.id_curso = c.id
+                         JOIN Usuario u ON m.id_alumno = u.id
+                     WHERE 
+                         c.codigo = ?;
+                     """;
+
+        Conexion con = new Conexion();
+        Connection cox = con.conectar();
+        DefaultTableModel model = new DefaultTableModel();
+
+        model.addColumn("ID Matricula");
+        model.addColumn("Nombre Alumno");
+        model.addColumn("Correo Alumno");
+
+        jTable.setModel(model);
+
+        try (PreparedStatement pstmt = cox.prepareStatement(sql)) {
+            pstmt.setString(1, codigoCurso);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    String[] datos = new String[3];
+                    datos[0] = rs.getString("matricula_id");
+                    datos[1] = rs.getString("alumno_nombre");
+                    datos[2] = rs.getString("alumno_correo");
+
+                    model.addRow(datos);
+                }
+
+                return true;
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+    }
+
 }

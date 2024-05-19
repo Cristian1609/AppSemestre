@@ -1,21 +1,20 @@
-package vistasAlumno;
+package VistasDocente;
 
+import vistasAlumno.*;
 import vistasAdministrador.*;
 import Main.VistaIniciarSesion;
 import Clases.CLlenarCombo;
 import Clases.SQLUsuarios;
-import Factory.CConcretaAlumno;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class Alumno_InformacionPersonal extends javax.swing.JFrame {
+public class Docente_InformacionPersonal extends javax.swing.JFrame {
     
     private String dato;
     CLlenarCombo Lc = new CLlenarCombo();
     SQLUsuarios sql = new SQLUsuarios();
-    CConcretaAlumno cAlumno = new CConcretaAlumno();
     
-    public Alumno_InformacionPersonal() {
+    public Docente_InformacionPersonal() {
         initComponents();
         Lc.LlenarCombo("Eps", "nombre", ComboEps);
         Lc.LlenarCombo("Sexo", "nombre", comboSexo);
@@ -25,7 +24,7 @@ public class Alumno_InformacionPersonal extends javax.swing.JFrame {
     public void setDato(String dato) {
         this.dato = dato;
         lblDato.setText(dato);
-        sql.mostrarDatos(dato, lblDato, lblNombre, lblTidentificacion, lblNidentificacion1, lblCorreo, lblTelefono, lblFnacimiento, lblSexo, lblEps, lblCodigoInstitucional, lblCoreoInstitucional, lblContraseña, txtNombre, comboIdentificacion, txtNumeroIdentificacion, txtCorreoPersonal, txtTelefono, comboSexo, ComboEps,"Alumno");
+        sql.mostrarDatos(dato, lblDato, lblNombre, lblTidentificacion, lblNidentificacion1, lblCorreo, lblTelefono, lblFnacimiento, lblSexo, lblEps, lblCodigoInstitucional, lblCoreoInstitucional, lblContraseña, txtNombre, comboIdentificacion, txtNumeroIdentificacion, txtCorreoPersonal, txtTelefono, comboSexo, ComboEps,"Docente");
         
     }
     
@@ -124,7 +123,7 @@ public class Alumno_InformacionPersonal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Matricula Academica");
+        jLabel4.setText("Cursos");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 255), new java.awt.Color(255, 255, 255)));
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -136,7 +135,7 @@ public class Alumno_InformacionPersonal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Solicitud Informes");
+        jLabel5.setText("Alumnos");
         jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -367,7 +366,7 @@ public class Alumno_InformacionPersonal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void lblDatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDatoMouseClicked
-        Alumno_InformacionPersonal adminIP = new Alumno_InformacionPersonal();
+        Docente_InformacionPersonal adminIP = new Docente_InformacionPersonal();
         adminIP.setVisible(true);
         this.setVisible(false);
         adminIP.setDato(dato);
@@ -382,39 +381,39 @@ public class Alumno_InformacionPersonal extends javax.swing.JFrame {
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         try {
-            sql.ModificarDatos(txtNombre, comboIdentificacion, txtNumeroIdentificacion, txtCorreoPersonal, txtTelefono, comboSexo, ComboEps, dato,"Alumno");
+            sql.ModificarDatos(txtNombre, comboIdentificacion, txtNumeroIdentificacion, txtCorreoPersonal, txtTelefono, comboSexo, ComboEps, dato,"Docente");
             JOptionPane.showMessageDialog(null, "Datos modificados correctamente");
-            sql.mostrarDatos(dato, lblDato, lblNombre, lblTidentificacion, lblNidentificacion1, lblCorreo, lblTelefono, lblFnacimiento, lblSexo, lblEps, lblCodigoInstitucional, lblCoreoInstitucional, lblContraseña, txtNombre, comboIdentificacion, txtNumeroIdentificacion, txtCorreoPersonal, txtTelefono, comboSexo, ComboEps,"Alumno");
+            sql.mostrarDatos(dato, lblDato, lblNombre, lblTidentificacion, lblNidentificacion1, lblCorreo, lblTelefono, lblFnacimiento, lblSexo, lblEps, lblCodigoInstitucional, lblCoreoInstitucional, lblContraseña, txtNombre, comboIdentificacion, txtNumeroIdentificacion, txtCorreoPersonal, txtTelefono, comboSexo, ComboEps,"Docente");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        Alumno_Horario aluH = new Alumno_Horario();
-        aluH.setDato(dato);
-        aluH.setVisible(true);
+         Docente_Horario doH = new Docente_Horario();
+        doH.setDato(dato);
+        doH.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Alumno_Matricula alumnoM = new Alumno_Matricula();
-        alumnoM.setVisible(true);
-        alumnoM.setDato(dato);
+       Docente_Cursos doC = new Docente_Cursos();
+        doC.setDato(dato);
         this.setVisible(false);
+        doC.setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        Alumno_InformacionPersonal alu = new Alumno_InformacionPersonal();
-        alu.setDato(dato);
-        alu.setVisible(true);
+        Docente_Alumnos doA = new Docente_Alumnos();
+        doA.setVisible(true);
+        doA.setDato(dato);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
     
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(() -> {
-            new Alumno_InformacionPersonal().setVisible(true);
+            new Docente_InformacionPersonal().setVisible(true);
         });
     }
 

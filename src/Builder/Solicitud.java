@@ -1,7 +1,5 @@
 package Builder;
 
-import Factory.CConcretaAlumno;
-
 public class Solicitud {
 
     private String codigo;
@@ -30,7 +28,5 @@ public class Solicitud {
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }
-
-   
 
 }

@@ -1,6 +1,7 @@
 package Clases;
 
 import BD.Conexion;
+import VistasDocente.DocenteGeneral;
 import vistasAdministrador.AdminGeneral;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -61,7 +62,9 @@ public class SQLIniciarSesion extends BD.Conexion {
 
                                 break;
                             case "Docente":
-
+                                VistasDocente.DocenteGeneral docente = new DocenteGeneral();
+                                docente.setVisible(true);
+                                docente.setDato(codigoInstitucional);
                                 break;
                             case "Alumno":
                                 vistasAlumno.AlumnoGeneral alumno = new AlumnoGeneral();
