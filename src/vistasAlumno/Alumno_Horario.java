@@ -2,6 +2,7 @@ package vistasAlumno;
 
 import Clases.SQLAlumnoMatricula;
 import Main.VistaIniciarSesion;
+import PFactory.SQLUsuarioFactory;
 import vistasAdministrador.*;
 import javax.swing.JOptionPane;
 
@@ -10,6 +11,7 @@ public class Alumno_Horario extends javax.swing.JFrame {
     AdminUsuarios adminU = new AdminUsuarios();
     private String dato;
     SQLAlumnoMatricula almunoM = new SQLAlumnoMatricula();
+    SQLUsuarioFactory sqlF = new SQLUsuarioFactory();
 
     public Alumno_Horario() {
         initComponents();
@@ -19,6 +21,7 @@ public class Alumno_Horario extends javax.swing.JFrame {
     public void setDato(String dato) {
         this.dato = dato;
         lblDato.setText(dato);
+        sqlF.mostrar(lblUsuario, lblDato, jTable1);
     }
 
     @SuppressWarnings("unchecked")
@@ -33,9 +36,10 @@ public class Alumno_Horario extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -147,11 +151,11 @@ public class Alumno_Horario extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Horario");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 750, 51));
+        lblUsuario.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUsuario.setText("Alumno");
+        jPanel2.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 750, 51));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -166,7 +170,13 @@ public class Alumno_Horario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 690, -1));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 167, 690, 330));
+
+        jLabel14.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Horario");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 750, 51));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 760, 520));
 
@@ -215,7 +225,7 @@ public class Alumno_Horario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -225,5 +235,6 @@ public class Alumno_Horario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblDato;
+    private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }

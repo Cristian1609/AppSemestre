@@ -4,7 +4,7 @@ import Main.VistaIniciarSesion;
 import BD.Conexion;
 import Clases.CSexo;
 import Clases.SQLSexo;
-import Factory.SQLUsuarioFactory;
+import PFactory.SQLUsuarioFactory;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

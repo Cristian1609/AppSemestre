@@ -2,13 +2,13 @@ package vistasAdministrador;
 
 import Main.VistaIniciarSesion;
 import BD.Conexion;
-import Factory.CConcretaAlumno;
-import Factory.CConcretaDocente;
+import PFactory.CConcretaAlumno;
+import PFactory.CConcretaDocente;
 import Clases.CLlenarCombo;
 import Clases.CSexo;
-import Factory.IUsuario;
-import Factory.SQLUsuarioFactory;
-import Factory.UsuarioFactory;
+import PFactory.IUsuario;
+import PFactory.SQLUsuarioFactory;
+import PFactory.UsuarioFactory;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;

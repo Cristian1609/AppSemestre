@@ -1,7 +1,7 @@
 package Clases;
 
-import Factory.CConcretaAlumno;
-import Factory.IUsuario;
+import PFactory.CConcretaAlumno;
+import PFactory.IUsuario;
 
 public class UsuarioFactory {
 

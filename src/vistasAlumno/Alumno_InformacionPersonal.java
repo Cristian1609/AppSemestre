@@ -4,7 +4,7 @@ import vistasAdministrador.*;
 import Main.VistaIniciarSesion;
 import Clases.CLlenarCombo;
 import Clases.SQLUsuarios;
-import Factory.CConcretaAlumno;
+import PFactory.CConcretaAlumno;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 

@@ -1,9 +1,9 @@
 package Clases;
 
 import BD.Conexion;
-import Builder.Solicitud;
-import Builder.SolicitudCertificado;
-import Builder.SolicitudPersmiso;
+import PBuilder.Solicitud;
+import PBuilder.SolicitudCertificado;
+import PBuilder.SolicitudPersmiso;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

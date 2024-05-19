@@ -5,7 +5,7 @@ import Clases.CLlenarCombo;
 import Clases.CTipoIdentificacion;
 import Clases.SQLCursos_Horarios;
 import Clases.SQLTipoIdentificacion;
-import Factory.SQLUsuarioFactory;
+import PFactory.SQLUsuarioFactory;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 

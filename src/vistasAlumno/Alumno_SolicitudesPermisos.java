@@ -1,11 +1,11 @@
 package vistasAlumno;
 
-import Builder.Director;
-import Builder.InterfaceSolicitud;
-import Builder.PermisoBuilder;
-import Builder.SolicitudPersmiso;
+import PBuilder.Director;
+import PBuilder.InterfaceSolicitud;
+import PBuilder.PermisoBuilder;
+import PBuilder.SolicitudPersmiso;
 import Clases.SQLSolicitudes;
-import Factory.CConcretaAlumno;
+import PFactory.CConcretaAlumno;
 import Main.VistaIniciarSesion;
 import vistasAdministrador.*;
 import javax.swing.JOptionPane;

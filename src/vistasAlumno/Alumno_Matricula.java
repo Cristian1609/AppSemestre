@@ -1,7 +1,7 @@
 package vistasAlumno;
 
 import Clases.SQLAlumnoMatricula;
-import Factory.SQLUsuarioFactory;
+import PFactory.SQLUsuarioFactory;
 import Main.VistaIniciarSesion;
 import java.sql.SQLException;
 import vistasAdministrador.*;
