@@ -50,7 +50,6 @@ public class Admin_Pensum extends javax.swing.JFrame {
         jButton1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
 
@@ -323,19 +322,6 @@ public class Admin_Pensum extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 550, 184));
 
-        jButton4.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 204, 0));
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jButton4.setText("Modificar");
-        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 204, 0), new java.awt.Color(255, 204, 0)));
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 148, 37));
-
         jLabel23.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -364,8 +350,9 @@ public class Admin_Pensum extends javax.swing.JFrame {
         String programa = (String) jComboBox1.getSelectedItem();
         CPensum cp = new CPensum();
 
-        if (!codigo.isEmpty() || !programa.isEmpty()) {
-
+        if (codigo.equals("")) {
+            JOptionPane.showMessageDialog(null, "Completa los campos");
+        } else {
             cp.setCodigo(codigo);
             cp.setPrograma(programa);
 
@@ -375,10 +362,8 @@ public class Admin_Pensum extends javax.swing.JFrame {
                 txtcodigo.setText(" ");
                 sqlP.Mostrar(jTable1);
                 jComboBox1.setSelectedItem(0);
-
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Completa el campo");
+
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -414,29 +399,6 @@ public class Admin_Pensum extends javax.swing.JFrame {
         adminA.setDato(dato);
         adminA.setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-//        try {
-//            int filaSeleccionada = jTable1.getSelectedRow();
-//
-//            if (filaSeleccionada >= 0) {
-//                int PensumId = Integer.parseInt(jTable1.getValueAt(filaSeleccionada, 0).toString());
-//
-//                boolean resultado = SQLPensum.modificarPensum(PensumId, txtcodigo, jComboBox1);
-//
-//                if (resultado) {
-//                    JOptionPane.showMessageDialog(null, "Programa  modificado con éxito.");
-//                } else {
-//                    JOptionPane.showMessageDialog(null, "No se pudo modificar el Programa.");
-//                }
-//            } else {
-//                JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila.");
-//            }
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, ex);
-//        }
-//        sq.Mostrar(jTable1);
-    }//GEN-LAST:event_jButton4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         Admin_Docentes adminD = new Admin_Docentes();
@@ -483,7 +445,6 @@ public class Admin_Pensum extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jButton1;
     private javax.swing.JLabel jButton3;
-    private javax.swing.JLabel jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

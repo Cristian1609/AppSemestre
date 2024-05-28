@@ -231,6 +231,7 @@ public class Alumno_SolicitudesPermisos extends javax.swing.JFrame {
     }//GEN-LAST:event_lblDatoMouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        
         Director director = new Director();
         PermisoBuilder permisoBuilder = new PermisoBuilder();
 

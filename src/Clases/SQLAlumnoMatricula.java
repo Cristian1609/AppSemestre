@@ -29,7 +29,7 @@ public class SQLAlumnoMatricula extends BD.Conexion {
                          JOIN Asignatura a ON c.id_asignatura = a.id
                          JOIN Docente d ON hc.id_docente = d.id
                          JOIN Usuario u ON d.id_usuario = u.id
-                         WHERE a.nivel = 1;
+                         
                      """;
 
         Conexion con = new Conexion();

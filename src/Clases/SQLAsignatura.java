@@ -132,28 +132,32 @@ public class SQLAsignatura extends BD.Conexion {
 
         int filaSeleccionada = tablaAsignaturas.getSelectedRow();
         if (filaSeleccionada >= 0) {
-            txtCodigo.setText(tablaAsignaturas.getValueAt(filaSeleccionada, 0).toString());
-            txtNombre.setText(tablaAsignaturas.getValueAt(filaSeleccionada, 1).toString());
-            txtNcreditos.setText(tablaAsignaturas.getValueAt(filaSeleccionada, 2).toString());
+            txtCodigo.setText(tablaAsignaturas.getValueAt(filaSeleccionada, 1).toString());
+            txtNombre.setText(tablaAsignaturas.getValueAt(filaSeleccionada, 2).toString());
+            txtNcreditos.setText(tablaAsignaturas.getValueAt(filaSeleccionada, 3).toString());
             comboNivel.setSelectedItem(comboNivel);
-            String semestreValor = tablaAsignaturas.getValueAt(filaSeleccionada, 3).toString();
+            String semestreValor = tablaAsignaturas.getValueAt(filaSeleccionada, 5).toString();
             semestre.setSelectedItem(semestreValor);
-            String pensumValor = tablaAsignaturas.getValueAt(filaSeleccionada, 4).toString();
+            String pensumValor = tablaAsignaturas.getValueAt(filaSeleccionada, 6).toString();
             pensum.setSelectedItem(pensumValor);
         } else {
+            
             JOptionPane.showMessageDialog(null, "Seleccione una fila para cargar datos");
         }
     }
 
-    public void modificar(CAsignatura cas, JComboBox comboNivel, JTextField txtCodigo, JTextField txtNombre, JTextField txtNcreditos, JComboBox<String> semestre, JComboBox<String> pensum) {
-        String codigo = txtCodigo.getText();
-        String nombre = txtNombre.getText();
-        String numero_creditos = txtNcreditos.getText();
-        int nivel = (int) comboNivel.getSelectedItem();
-        String sem = (String) semestre.getSelectedItem();
-        String pen = (String) pensum.getSelectedItem();
+   public void modificar(CAsignatura cas, JComboBox<String> comboNivel, JTextField txtCodigo, JTextField txtNombre, JTextField txtNcreditos, JComboBox<String> semestre, JComboBox<String> pensum) {
+    String codigo = txtCodigo.getText();
+    String nombre = txtNombre.getText();
+    String numero_creditos = txtNcreditos.getText();
+    String nivelStr = (String) comboNivel.getSelectedItem();
+    String sem = (String) semestre.getSelectedItem();
+    String pen = (String) pensum.getSelectedItem();
 
-        if (!codigo.isEmpty() && !nombre.isEmpty() && !numero_creditos.isEmpty() && sem != null && pen != null) {
+    if (!codigo.isEmpty() && !nombre.isEmpty() && !numero_creditos.isEmpty() && nivelStr != null && sem != null && pen != null) {
+        try {
+            int nivel = Integer.parseInt(nivelStr);
+
             String temp = "SELECT COUNT(*) FROM Asignatura WHERE codigo = ?";
             try (PreparedStatement psExists = con.prepareStatement(temp)) {
                 psExists.setString(1, codigo);
@@ -164,7 +168,7 @@ public class SQLAsignatura extends BD.Conexion {
                     return;
                 }
 
-                String sqlUpdate = "UPDATE Asignatura SET nombre = ?, numero_creditos = ?,nivel=?, id_semestre = (SELECT id FROM Semestre WHERE semestre = ?), id_pensum = (SELECT id FROM Pensum WHERE codigo = ?) WHERE codigo = ?";
+                String sqlUpdate = "UPDATE Asignatura SET nombre = ?, numero_creditos = ?, nivel = ?, id_semestre = (SELECT id FROM Semestre WHERE semestre = ?), id_pensum = (SELECT id FROM Pensum WHERE codigo = ?) WHERE codigo = ?";
                 try (PreparedStatement ps = con.prepareStatement(sqlUpdate)) {
                     ps.setString(1, nombre);
                     ps.setString(2, numero_creditos);
@@ -183,17 +187,25 @@ public class SQLAsignatura extends BD.Conexion {
 
                     JOptionPane.showMessageDialog(null, "Modificación exitosa");
 
+                    
                     txtCodigo.setText("");
-                    txtNcreditos.setText("");
                     txtNombre.setText("");
+                    txtNcreditos.setText("");
+                    comboNivel.setSelectedItem(null);
+                    semestre.setSelectedItem(null);
+                    pensum.setSelectedItem(null);
                 }
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Error al modificar: " + ex.getMessage());
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Nivel debe ser un número entero válido.");
         }
+    } else {
+        JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos");
     }
+}
+
 
     public void eliminar(JTextField txtCodigo, JTextField txtNombre, JTextField txtNcreditos) {
         String codigo = txtCodigo.getText();

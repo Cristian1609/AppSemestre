@@ -35,7 +35,6 @@ public class Alumno_Matricula extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         lblNombre = new javax.swing.JLabel();
@@ -50,11 +49,8 @@ public class Alumno_Matricula extends javax.swing.JFrame {
         lblInicioo = new javax.swing.JLabel();
         lblIfin = new javax.swing.JLabel();
         lblDia = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JLabel();
         lblDocente = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JLabel();
         lblCodigo1 = new javax.swing.JLabel();
@@ -169,12 +165,6 @@ public class Alumno_Matricula extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Matriculadas");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 310, 40));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -261,19 +251,6 @@ public class Alumno_Matricula extends javax.swing.JFrame {
         lblDia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel2.add(lblDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 170, 27));
 
-        jButton4.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 255));
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jButton4.setText("Quitar");
-        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 255), new java.awt.Color(0, 0, 204)));
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 148, 37));
-
         lblDocente.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         lblDocente.setForeground(new java.awt.Color(255, 255, 255));
         lblDocente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -284,21 +261,6 @@ public class Alumno_Matricula extends javax.swing.JFrame {
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel20.setText("Docente:");
         jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 115, 27));
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 460, 140));
 
         jLabel14.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -362,10 +324,6 @@ public class Alumno_Matricula extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-
-    }//GEN-LAST:event_jButton4MouseClicked
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         SQLAlumnoMatricula sqlm = new SQLAlumnoMatricula();
         sqlm.cargarDatos(jTable1, lblId, lblNombre, lblNcreditos, lblDia, lblInicioo, lblIfin, lblDocente);
@@ -400,11 +358,9 @@ public class Alumno_Matricula extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jButton4;
     private javax.swing.JLabel jButton5;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
@@ -419,9 +375,7 @@ public class Alumno_Matricula extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblCodigo1;
     private javax.swing.JLabel lblDato;
     private javax.swing.JLabel lblDia;

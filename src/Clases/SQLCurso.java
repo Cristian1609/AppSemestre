@@ -103,33 +103,18 @@ public class SQLCurso extends BD.Conexion {
         }
     }
 
-    public boolean cargarCurso(String codigoCurso, JTextField txtCodigo, JTextField txtNombre, JComboBox<String> comboAsignatura) throws SQLException {
-        String consulta = "SELECT "
-                + "c.codigo, "
-                + "c.nombre, "
-                + "a.nombre AS asignatura "
-                + "FROM Curso c "
-                + "JOIN Asignatura a ON c.id_asignatura = a.id "
-                + "WHERE c.codigo = ?";
+    public boolean Cargar(JTable jTable1, JTextField txtcodigo, JComboBox jComboBox1,JTextField txtnombre) {
+        int filaSeleccionada = jTable1.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            txtcodigo.setText(jTable1.getValueAt(filaSeleccionada, 1).toString());
+            txtnombre.setText(jTable1.getValueAt(filaSeleccionada, 2).toString());
+            jComboBox1.setSelectedItem(jTable1.getValueAt(filaSeleccionada, 3).toString());
 
-        try (PreparedStatement pstmt = con.prepareStatement(consulta)) {
-            pstmt.setString(1, codigoCurso);
-            ResultSet rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-                txtCodigo.setText(rs.getString("codigo"));
-                txtNombre.setText(rs.getString("nombre"));
-                comboAsignatura.setSelectedItem(rs.getString("asignatura"));
-                return true;
-            } else {
-                JOptionPane.showMessageDialog(null, "Curso no encontrado.");
-                return false;
-            }
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al cargar el curso: " + ex.getMessage());
-            throw ex;
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila para cargar datos");
         }
+        return false;
+
     }
 
     public boolean Mostrar(JTable jTable1) {
